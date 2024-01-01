@@ -133,7 +133,7 @@ class Looper():
 
         return self.announcements[self.index]
 
-    def check_status_code(self, response, status_code):
+    def check_status_code(self, response, status_code) -> bool:
         """Check the result code and log any errors."""
 
         result = response.status_code == status_code
