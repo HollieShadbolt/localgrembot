@@ -123,7 +123,7 @@ class Looper():
             {"message": self.announcements[self.index]},
             params=params,
             headers=self.headers,
-            timeout=self.SECONDS_IN_A_MINUTE
+            timeout=60
         )
 
         return self.check_status_code(response, 204)
