@@ -23,7 +23,7 @@ class Looper():
         moderator_id: str,
         interval: float,
         client_id: str,
-        token: str,
+        token: str
     ) -> None:
         logging.info('Initializing...')
 
@@ -123,7 +123,7 @@ class Looper():
             {"message": self.announcements[self.index]},
             params=params,
             headers=self.headers,
-            timeout=60
+            timeout=self.SECONDS_IN_A_MINUTE
         )
 
         return self.check_status_code(response, 204)
