@@ -1,0 +1,13 @@
+{
+    "client_id": "thiswillbewhereyourclientidgoes",
+    "token": "thiswillbewhereyourtokengoes",
+    "broadcaster_id": "64370289",
+    "moderator_id": "799181417",
+    "ignore_offline": false,
+    "announcements": [
+        "Announcement One",
+        "Announcement Two",
+        "Announcement Three"
+    ],
+    "interval": 1200
+}
