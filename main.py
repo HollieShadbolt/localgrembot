@@ -25,7 +25,7 @@ class Looper():
         client_id: str,
         token: str
     ) -> None:
-        logging.info('Initializing...')
+        logging.info("Initializing...")
 
         self.broadcaster_id = broadcaster_id
         self.ignore_offline = ignore_offline
@@ -39,7 +39,7 @@ class Looper():
             "Client-Id": client_id,
         }
 
-        logging.info('Initialized.')
+        logging.info("Initialized.")
 
     def run(self) -> None:
         """Main entry point."""
@@ -74,7 +74,7 @@ class Looper():
         logging.info("Starting...")
 
         if self.ignore_offline and not self.try_request(self.get_online):
-            logging.info('Channel is offline.')
+            logging.info("Channel is offline.")
             return
 
         logging.info(
@@ -84,7 +84,7 @@ class Looper():
         )
 
         if self.try_request(self.post_announce):
-            logging.info('Sent.')
+            logging.info("Sent.")
             self.index = (self.index + 1) % len(self.announcements)
 
     def try_request(self, request) -> bool:
