@@ -52,26 +52,14 @@ class Looper():
 
         now = datetime.datetime.now()
 
-        seconds_until_announcement = self.interval - (datetime.timedelta(
+        logging.info("Waiting...")
+
+        time.sleep(self.interval - (datetime.timedelta(
             days=now.day,
             minutes=now.minute,
             seconds=now.second,
             microseconds=now.microsecond
-            ) / datetime.timedelta(seconds=1)) % self.interval
-
-        wait = datetime.timedelta(
-            seconds=seconds_until_announcement
-        )
-
-        logging.info(
-            "Waiting %s minute(s), %s second(s), and %s microsecond(s)...",
-            seconds_until_announcement // self.SECONDS_IN_A_MINUTE,
-            seconds_until_announcement % self.SECONDS_IN_A_MINUTE,
-            f"{wait.microseconds:,}"
-        )
-
-        time.sleep(seconds_until_announcement)
-        logging.info("Starting...")
+            ) / datetime.timedelta(seconds=1)) % self.interval)
 
         if self.ignore_offline and not self.try_request(self.get_online):
             logging.info("Channel is offline.")
