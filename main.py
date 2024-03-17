@@ -80,7 +80,8 @@ class Looper():
 
         try:
             return request()
-        except requests.exceptions.Timeout:
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError):
             logging.error("Request timed out.")
             return False
 
